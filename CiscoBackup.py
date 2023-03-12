@@ -19,7 +19,7 @@ with open('devices_file') as f:
 for devices in devices_list:
     print ('Connecting to device" ' + devices)
     ip_address_of_device = devices
-    ios_device = {
+    cisco_device = {
         'device_type': 'cisco_ios',
         'ip': ip_address_of_device,
         'username': username,
@@ -27,7 +27,7 @@ for devices in devices_list:
     }
 
     try:
-        net_connect = ConnectHandler(**ios_device)
+        net_connect = ConnectHandler(**cisco_device)
     except (AuthenticationException):
         print ('Authentication failure: ' + ip_address_of_device)
         continue
